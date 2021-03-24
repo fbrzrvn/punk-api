@@ -1,8 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles(theme => ({
+export default makeStyles(() => ({
 	root: {
-		margin: theme.spacing(2, 0),
+		alignItems: 'center',
+		margin: '20px auto',
 	},
 	link: {
 		textDecoration: 'none',

@@ -8,13 +8,13 @@ const Header = () => {
 	const classes = useStyles();
 
 	return (
-		<Container className={classes.root}>
+		<Container className={classes.root} maxWidth="md">
 			<Grid container aling="center" spacing={(0, 2)}>
 				<Grid item>
 					<Typography variant="h5">Punk API</Typography>
 				</Grid>
 				<Grid item>
-					<Button contained>
+					<Button>
 						<NavLink to="/" className={classes.link}>
 							Home
 						</NavLink>
