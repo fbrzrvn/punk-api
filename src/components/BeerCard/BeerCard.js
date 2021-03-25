@@ -35,9 +35,9 @@ const BeerCard = ({ beer }) => {
 							color="primary"
 							variant="outlined"
 							component={Link}
-							to={`/beers/finder/brewed_after=${beer.first_brewed}`}
+							to={`/beers?brewed_after=${beer.first_brewed}`}
 						>
-							First Brewed {beer.first_brewed}{' '}
+							First Brewed {beer.first_brewed}
 						</Button>
 					</Grid>
 				</Grid>
