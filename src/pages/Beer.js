@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Container, Grid, Typography } from '@material-ui/core';
+import {
+	CircularProgress,
+	Container,
+	Grid,
+	Typography,
+} from '@material-ui/core';
 
 import BeerCard from '../components/BeerCard';
 
@@ -24,6 +29,7 @@ const Beer = ({ match }) => {
 				<Grid container justify="center">
 					<Typography variant="h3" color="secondary" aling="center">
 						Loading...
+						<CircularProgress color="secondary" />
 					</Typography>
 				</Grid>
 			) : (

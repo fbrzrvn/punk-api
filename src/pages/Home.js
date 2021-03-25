@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Container, Grid, List, Typography } from '@material-ui/core';
+import {
+	Button,
+	CircularProgress,
+	Container,
+	Grid,
+	List,
+	Typography,
+} from '@material-ui/core';
 import axios from 'axios';
 
 import BeerList from '../components/BeerList';
@@ -30,6 +37,7 @@ const Home = () => {
 				<Grid container justify="center">
 					<Typography variant="h3" color="secondary" aling="center">
 						Loading...
+						<CircularProgress color="secondary" />
 					</Typography>
 				</Grid>
 			) : (
