@@ -15,16 +15,15 @@ import {
 } from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+
+import useFavoriteBeer from '../../hooks/useFavoriteBeer';
+
 import useStyles from './styles';
 
 const BeerCard = ({ beer }) => {
-	const [favorite, setFavorite] = useState(false);
+	const { favorite, toggleFavoriteBeers } = useFavoriteBeer();
 	const [showFood, setShowFood] = useState(false);
 	const classes = useStyles();
-
-	const handleClick = () => {
-		setFavorite(prevVal => !prevVal);
-	};
 
 	return (
 		<Container maxWidth="md">
@@ -95,8 +94,11 @@ const BeerCard = ({ beer }) => {
 						) : null}
 					</CardContent>
 				</CardActions>
-				<Button className={classes.cardFavorite} onClick={handleClick}>
-					{favorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+				<Button
+					className={classes.cardFavorite}
+					onClick={() => toggleFavoriteBeers(beer.id)}
+				>
+					{favorite[beer.id] ? <FavoriteIcon /> : <FavoriteBorderIcon />}
 				</Button>
 			</Card>
 		</Container>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
 	Avatar,
@@ -13,12 +13,10 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { red } from '@material-ui/core/colors';
 
-const BeerList = ({ beer }) => {
-	const [favorite, setFavorite] = useState(false);
+import useFavoriteBeer from '../../hooks/useFavoriteBeer';
 
-	const handleClick = () => {
-		setFavorite(prevVal => !prevVal);
-	};
+const BeerList = ({ beer }) => {
+	const { favorite, toggleFavoriteBeers } = useFavoriteBeer();
 
 	return (
 		<>
@@ -32,9 +30,9 @@ const BeerList = ({ beer }) => {
 						style={{ color: red[500] }}
 						edge="end"
 						aria-label="favorite"
-						onClick={handleClick}
+						onClick={() => toggleFavoriteBeers(beer.id)}
 					>
-						{favorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+						{favorite[beer.id] ? <FavoriteIcon /> : <FavoriteBorderIcon />}
 					</IconButton>
 				</ListItemSecondaryAction>
 			</ListItem>
