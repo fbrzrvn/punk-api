@@ -10,9 +10,9 @@ function App() {
 		<>
 			<Header />
 			<Switch>
-				<Route path="/beers/finder" component={Finder} exact />
-				<Route path="/beers/:beerId" component={Beer} exact />
-				<Route path="/" component={Home} exact />
+				<Route path="/beers/finder" component={Finder} />
+				<Route path="/beers/:beerId" component={Beer} />
+				<Route path="/" component={Home} />
 			</Switch>
 		</>
 	);

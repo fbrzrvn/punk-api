@@ -25,7 +25,7 @@ const Home = () => {
 	}, [page]);
 
 	return (
-		<Container maxWidth="md">
+		<Container className={classes.root} maxWidth="md">
 			{loading ? (
 				<Grid container justify="center">
 					<Typography variant="h3" color="secondary" aling="center">
@@ -53,7 +53,7 @@ const Home = () => {
 								</Button>
 							</Grid>
 						) : null}
-						{page <= 20 ? (
+						{page <= 36 ? (
 							<Grid item>
 								<Button
 									variant="outlined"

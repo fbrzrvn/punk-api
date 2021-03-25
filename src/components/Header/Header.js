@@ -15,7 +15,7 @@ const Header = () => {
 				</Grid>
 				<Grid item>
 					<Button>
-						<NavLink to="/" className={classes.link}>
+						<NavLink to="/" exact className={classes.link}>
 							Home
 						</NavLink>
 					</Button>

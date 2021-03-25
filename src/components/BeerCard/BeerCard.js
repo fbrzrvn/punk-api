@@ -26,8 +26,6 @@ const BeerCard = ({ beer }) => {
 		setFavorite(prevVal => !prevVal);
 	};
 
-	console.log(beer.food_pairing);
-
 	return (
 		<Container maxWidth="md">
 			<Card className={classes.card}>
@@ -38,7 +36,7 @@ const BeerCard = ({ beer }) => {
 							color="primary"
 							variant="outlined"
 							component={Link}
-							to={`/brewed_after=${beer.first_brewed}`}
+							to={`/beers/finder/brewed_after=${beer.first_brewed}`}
 						>
 							First Brewed {beer.first_brewed}{' '}
 						</Button>
@@ -88,8 +86,8 @@ const BeerCard = ({ beer }) => {
 						</Button>
 						{showFood ? (
 							<List dense>
-								{beer.food_pairing.map(food => (
-									<ListItem>
+								{beer.food_pairing.map((food, index) => (
+									<ListItem key={index}>
 										<ListItemText primary={food} />
 									</ListItem>
 								))}
