@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core';
 import axios from 'axios';
 
+import MainLayout from '../Layout/MainLayout';
 import BeerList from '../components/BeerList';
 
 import useStyles from '../styles';
@@ -32,48 +33,50 @@ const Home = () => {
 	}, [page]);
 
 	return (
-		<Container className={classes.root} maxWidth="md">
-			{loading ? (
-				<Grid container justify="center">
-					<Typography variant="h3" color="secondary" aling="center">
-						Loading...
-						<CircularProgress color="secondary" />
-					</Typography>
-				</Grid>
-			) : (
-				<>
+		<MainLayout>
+			<Container className={classes.root} maxWidth="md">
+				{loading ? (
 					<Grid container justify="center">
-						<List className={classes.list}>
-							{beers.map(beer => (
-								<BeerList key={beer.id} beer={beer} />
-							))}
-						</List>
+						<Typography variant="h3" color="secondary" aling="center">
+							Loading...
+							<CircularProgress color="secondary" />
+						</Typography>
 					</Grid>
-					<Grid container justify="flex-end">
-						{page > 1 ? (
-							<Grid item>
-								<Button
-									color="primary"
-									onClick={() => setPage(prevPage => prevPage - 1)}
-								>
-									Prev
-								</Button>
-							</Grid>
-						) : null}
-						{page <= 36 ? (
-							<Grid item>
-								<Button
-									color="primary"
-									onClick={() => setPage(prevPage => prevPage + 1)}
-								>
-									Next
-								</Button>
-							</Grid>
-						) : null}
-					</Grid>
-				</>
-			)}
-		</Container>
+				) : (
+					<>
+						<Grid container justify="center">
+							<List className={classes.list}>
+								{beers.map(beer => (
+									<BeerList key={beer.id} beer={beer} />
+								))}
+							</List>
+						</Grid>
+						<Grid container justify="flex-end">
+							{page > 1 ? (
+								<Grid item>
+									<Button
+										color="primary"
+										onClick={() => setPage(prevPage => prevPage - 1)}
+									>
+										Prev
+									</Button>
+								</Grid>
+							) : null}
+							{page <= 36 ? (
+								<Grid item>
+									<Button
+										color="primary"
+										onClick={() => setPage(prevPage => prevPage + 1)}
+									>
+										Next
+									</Button>
+								</Grid>
+							) : null}
+						</Grid>
+					</>
+				)}
+			</Container>
+		</MainLayout>
 	);
 };
 

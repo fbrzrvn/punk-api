@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button, Container, Grid, Typography } from '@material-ui/core';
 
 import useStyles from './styles';
 
 const Header = () => {
-	const [isLog, setIsLog] = useState(false);
 	const classes = useStyles();
 
 	return (
@@ -19,9 +18,11 @@ const Header = () => {
 					</NavLink>
 				</Grid>
 				<Grid item className={classes.authBtn}>
-					<Button variant="outlined" color="primary">
-						{isLog ? 'Logout' : 'Login'}
-					</Button>
+					<NavLink to="/login" className={classes.link}>
+						<Button variant="outlined" color="primary">
+							Login
+						</Button>
+					</NavLink>
 				</Grid>
 			</Grid>
 		</Container>

@@ -7,6 +7,7 @@ import {
 	Typography,
 } from '@material-ui/core';
 
+import MainLayout from '../Layout/MainLayout';
 import BeerCard from '../components/BeerCard';
 
 const Beer = ({ match, history }) => {
@@ -24,22 +25,24 @@ const Beer = ({ match, history }) => {
 	}, [beerId]);
 
 	return (
-		<Container>
-			{isLoading ? (
-				<Grid container justify="center">
-					<Typography variant="h3" color="secondary" aling="center">
-						Loading...
-						<CircularProgress color="secondary" />
-					</Typography>
-				</Grid>
-			) : (
-				<Container>
-					{beer.map(b => (
-						<BeerCard key={b.id} beer={b} history={history} />
-					))}
-				</Container>
-			)}
-		</Container>
+		<MainLayout>
+			<Container>
+				{isLoading ? (
+					<Grid container justify="center">
+						<Typography variant="h3" color="secondary" aling="center">
+							Loading...
+							<CircularProgress color="secondary" />
+						</Typography>
+					</Grid>
+				) : (
+					<Container>
+						{beer.map(b => (
+							<BeerCard key={b.id} beer={b} history={history} />
+						))}
+					</Container>
+				)}
+			</Container>
+		</MainLayout>
 	);
 };
 
