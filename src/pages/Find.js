@@ -18,7 +18,9 @@ const Find = ({ location, history }) => {
 
 	useEffect(() => {
 		const getBeer = async () => {
-			const res = await axios.get(`https://api.punkapi.com/v2/beers${search}`);
+			const res = await axios.get(
+				`https://api.punkapi.com/v2/beers${search}&per_page=80`
+			);
 			setBeer(res.data);
 			setIsLoading(false);
 		};

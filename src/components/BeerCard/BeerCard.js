@@ -34,7 +34,6 @@ const BeerCard = ({ beer, history }) => {
 						<Button
 							className={classes.btn}
 							color="primary"
-							variant="outlined"
 							component={Link}
 							to={`/beers?brewed_after=${beer.first_brewed}`}
 						>
@@ -50,7 +49,7 @@ const BeerCard = ({ beer, history }) => {
 						</Button>
 					</Grid>
 				</Grid>
-				<CardActions>
+				<CardActions className={classes.cardActions}>
 					<CardMedia
 						className={classes.cardMedia}
 						component="img"
@@ -58,10 +57,10 @@ const BeerCard = ({ beer, history }) => {
 						title={beer.name}
 					/>
 					<CardContent className={classes.cardContent}>
-						<Typography variant="h3" component="h2">
+						<Typography variant="h5" component="h2">
 							{beer.name}
 						</Typography>
-						<Typography variant="h2" color="textSecondary" component="p">
+						<Typography variant="h4" color="textSecondary" component="p">
 							{beer.tagline}
 						</Typography>
 						<Typography variant="body1" gutterBottom>
@@ -73,19 +72,23 @@ const BeerCard = ({ beer, history }) => {
 									abv: {beer.abv}
 								</Typography>
 							</Grid>
-							<Grid item>
-								<Typography variant="h6" color="textSecondary">
-									ibu: {beer.ibu}
-								</Typography>
-							</Grid>
-							<Grid item>
-								<Typography variant="h6" color="textSecondary">
-									ebc: {beer.ebc}
-								</Typography>
-							</Grid>
+							{beer.ibu ? (
+								<Grid item>
+									<Typography variant="h6" color="textSecondary">
+										ibu: {beer.ibu}
+									</Typography>
+								</Grid>
+							) : null}
+							{beer.ebc ? (
+								<Grid item>
+									<Typography variant="h6" color="textSecondary">
+										ebc: {beer.ebc}
+									</Typography>
+								</Grid>
+							) : null}
 						</Grid>
 						<Button
-							variant="outlined"
+							variant="contained"
 							color="primary"
 							className={classes.cardBtn}
 							onClick={() => setShowFood(prevVal => !prevVal)}

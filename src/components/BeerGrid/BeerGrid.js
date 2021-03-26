@@ -13,9 +13,9 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 import useFavoriteBeer from '../../hooks/useFavoriteBeer';
+import GoBackButton from '../GoBackButton';
 
 import useStyles from './styles';
-import GoBackButton from '../GoBackButton';
 
 const BeerGrid = ({ beer, history }) => {
 	const { favorite, toggleFavoriteBeers } = useFavoriteBeer();
@@ -56,13 +56,11 @@ const BeerGrid = ({ beer, history }) => {
 					</Grid>
 				</Grid>
 			</CardContent>
-			<CardActions>
+			<CardActions className={classes.cardAction}>
 				<Button
-					className={classes.btn}
-					color="primary"
-					variant="outlined"
 					component={Link}
 					to={`/beers?brewed_after=${beer.first_brewed}`}
+					color="primary"
 				>
 					First Brewed {beer.first_brewed}
 				</Button>

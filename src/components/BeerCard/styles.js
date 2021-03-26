@@ -11,6 +11,12 @@ export default makeStyles(theme => ({
 		flexDirection: 'column',
 		padding: theme.spacing(2),
 	},
+	cardActions: {
+		dispaly: 'flex',
+		[theme.breakpoints.down('sm')]: {
+			flexDirection: 'column',
+		},
+	},
 	cardMedia: {
 		width: '100px',
 		margin: '16px auto',

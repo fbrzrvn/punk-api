@@ -53,7 +53,6 @@ const Home = () => {
 						{page > 1 ? (
 							<Grid item>
 								<Button
-									variant="outlined"
 									color="primary"
 									onClick={() => setPage(prevPage => prevPage - 1)}
 								>
@@ -64,7 +63,6 @@ const Home = () => {
 						{page <= 36 ? (
 							<Grid item>
 								<Button
-									variant="outlined"
 									color="primary"
 									onClick={() => setPage(prevPage => prevPage + 1)}
 								>

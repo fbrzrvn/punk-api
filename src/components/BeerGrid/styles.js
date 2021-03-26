@@ -9,13 +9,14 @@ export default makeStyles(theme => ({
 		height: '100%',
 		padding: theme.spacing(2),
 	},
-	btn: {
-		margin: theme.spacing(2),
-	},
 	cardImage: {
 		width: '80px',
 		heigth: '80px',
-		margin: 'auto',
+		margin: '0 auto 16px',
+	},
+	cardAction: {
+		display: 'flex',
+		justifyContent: 'space-between',
 	},
 	cardFavorite: {
 		marginLeft: 'auto',

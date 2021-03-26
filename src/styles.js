@@ -8,7 +8,7 @@ export default makeStyles(theme => ({
 		margin: theme.spacing(0, 2),
 	},
 	list: {
-		backgroundColor: theme.palette.background.default,
+		backgroundColor: theme.palette.background.paper,
 		marginBottom: theme.spacing(2),
 		width: '100%',
 	},
