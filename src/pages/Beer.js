@@ -9,7 +9,7 @@ import {
 
 import BeerCard from '../components/BeerCard';
 
-const Beer = ({ match }) => {
+const Beer = ({ match, history }) => {
 	const [beer, setBeer] = useState();
 	const [isLoading, setIsLoading] = useState(true);
 	const { beerId } = match.params;
@@ -35,7 +35,7 @@ const Beer = ({ match }) => {
 			) : (
 				<Container>
 					{beer.map(b => (
-						<BeerCard key={b.id} beer={b} />
+						<BeerCard key={b.id} beer={b} history={history} />
 					))}
 				</Container>
 			)}

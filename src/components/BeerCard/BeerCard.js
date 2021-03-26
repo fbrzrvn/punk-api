@@ -17,10 +17,11 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 import useFavoriteBeer from '../../hooks/useFavoriteBeer';
+import GoBackButton from '../GoBackButton';
 
 import useStyles from './styles';
 
-const BeerCard = ({ beer }) => {
+const BeerCard = ({ beer, history }) => {
 	const { favorite, toggleFavoriteBeers } = useFavoriteBeer();
 	const [showFood, setShowFood] = useState(false);
 	const classes = useStyles();
@@ -28,8 +29,8 @@ const BeerCard = ({ beer }) => {
 	return (
 		<Container maxWidth="md">
 			<Card className={classes.card}>
-				<Grid container direction="row" justify="flex-end">
-					<Grid>
+				<Grid container direction="row" justify="space-between">
+					<Grid item>
 						<Button
 							className={classes.btn}
 							color="primary"
@@ -38,6 +39,14 @@ const BeerCard = ({ beer }) => {
 							to={`/beers?brewed_after=${beer.first_brewed}`}
 						>
 							First Brewed {beer.first_brewed}
+						</Button>
+					</Grid>
+					<Grid item>
+						<Button
+							className={classes.cardFavorite}
+							onClick={() => toggleFavoriteBeers(beer.id)}
+						>
+							{favorite[beer.id] ? <FavoriteIcon /> : <FavoriteBorderIcon />}
 						</Button>
 					</Grid>
 				</Grid>
@@ -94,12 +103,7 @@ const BeerCard = ({ beer }) => {
 						) : null}
 					</CardContent>
 				</CardActions>
-				<Button
-					className={classes.cardFavorite}
-					onClick={() => toggleFavoriteBeers(beer.id)}
-				>
-					{favorite[beer.id] ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-				</Button>
+				<GoBackButton history={history} />
 			</Card>
 		</Container>
 	);

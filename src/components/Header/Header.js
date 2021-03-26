@@ -9,8 +9,8 @@ const Header = () => {
 	const classes = useStyles();
 
 	return (
-		<Container className={classes.root} maxWidth="md">
-			<Grid container aling="center" spacing={(0, 2)}>
+		<Container className={classes.root}>
+			<Grid container aling="center">
 				<Grid item>
 					<NavLink to="/" exact className={classes.link}>
 						<Typography variant="h5" component="p" color="primary">
@@ -18,7 +18,6 @@ const Header = () => {
 						</Typography>
 					</NavLink>
 				</Grid>
-				<Grid item></Grid>
 				<Grid item className={classes.authBtn}>
 					<Button variant="outlined" color="primary">
 						{isLog ? 'Logout' : 'Login'}

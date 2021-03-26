@@ -15,13 +15,14 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import useFavoriteBeer from '../../hooks/useFavoriteBeer';
 
 import useStyles from './styles';
+import GoBackButton from '../GoBackButton';
 
-const BeerGrid = ({ beer }) => {
+const BeerGrid = ({ beer, history }) => {
 	const { favorite, toggleFavoriteBeers } = useFavoriteBeer();
 	const classes = useStyles();
 
 	return (
-		<Card className={classes.card}>
+		<Grid item component={Card} className={classes.card}>
 			<CardMedia
 				component="img"
 				image={beer.image_url}
@@ -29,23 +30,27 @@ const BeerGrid = ({ beer }) => {
 				className={classes.cardImage}
 			/>
 			<CardContent>
-				<Typography variant="h5">{beer.name}</Typography>
+				<Link to={`/beers/${beer.id}`} className={classes.cardLink}>
+					<Typography variant="h5" color="primary">
+						{beer.name}
+					</Typography>
+				</Link>
 				<Typography variant="body1" color="textPrimary">
 					{beer.tagline}
 				</Typography>
 				<Grid container direction="row" spacing={2}>
 					<Grid item>
-						<Typography variant="p" color="textSecondary">
+						<Typography variant="body1" color="textSecondary">
 							abv: {beer.abv}
 						</Typography>
 					</Grid>
 					<Grid item>
-						<Typography variant="p" color="textSecondary">
+						<Typography variant="body1" color="textSecondary">
 							ibu: {beer.ibu}
 						</Typography>
 					</Grid>
 					<Grid item>
-						<Typography variant="p" color="textSecondary">
+						<Typography variant="body1" color="textSecondary">
 							ebc: {beer.ebc}
 						</Typography>
 					</Grid>
@@ -68,10 +73,8 @@ const BeerGrid = ({ beer }) => {
 					{favorite[beer.id] ? <FavoriteIcon /> : <FavoriteBorderIcon />}
 				</Button>
 			</CardActions>
-			<Grid container direction="row" justify="flex-end">
-				<Grid></Grid>
-			</Grid>
-		</Card>
+			<GoBackButton history={history} />
+		</Grid>
 	);
 };
 

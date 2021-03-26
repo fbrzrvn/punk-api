@@ -3,9 +3,10 @@ import { red } from '@material-ui/core/colors';
 
 export default makeStyles(theme => ({
 	card: {
-		heigth: '100%',
 		display: 'flex',
 		flexDirection: 'column',
+		alignItems: 'stretch',
+		height: '100%',
 		padding: theme.spacing(2),
 	},
 	btn: {
@@ -13,10 +14,14 @@ export default makeStyles(theme => ({
 	},
 	cardImage: {
 		width: '80px',
+		heigth: '80px',
 		margin: 'auto',
 	},
 	cardFavorite: {
 		marginLeft: 'auto',
 		color: red[500],
+	},
+	cardLink: {
+		textDecoration: 'none',
 	},
 }));
