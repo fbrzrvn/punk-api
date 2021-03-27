@@ -1,6 +1,6 @@
 const getItem = item => {
-	const favoritesBeers = localStorage.getItem(item);
-	return favoritesBeers ? JSON.parse(favoritesBeers) : [];
+	const data = localStorage.getItem(item);
+	return data ? JSON.parse(data) : [];
 };
 
 const saveItem = (item, value) => {
