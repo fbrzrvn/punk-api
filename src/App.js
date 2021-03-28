@@ -1,22 +1,29 @@
 import { Route, Switch } from 'react-router-dom';
+import { Provider as ReduxProvider } from 'react-redux';
 
-import Header from './components/Header';
+import ProtectedRoute from './helpers/ProtectedRoute';
 
-import Home from './pages/Home';
+import store from './store';
 import Beer from './pages/Beer';
 import Find from './pages/Find';
+import Login from './pages/Login';
+import Home from './pages/Home';
 
 function App() {
-	return (
-		<>
-			<Header />
-			<Switch>
-				<Route path="/beers/:beerId" component={Beer} />
-				<Route path="/beers" component={Find} />
-				<Route path="/" component={Home} />
-			</Switch>
-		</>
-	);
+  return (
+    <>
+      <ReduxProvider store={store}>
+        <Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/beers/:beerId" component={Beer} />
+          <Route path="/beers" component={Find} />
+          <ProtectedRoute>
+            <Route path="/" component={Home} />
+          </ProtectedRoute>
+        </Switch>
+      </ReduxProvider>
+    </>
+  );
 }
 
 export default App;
