@@ -28,6 +28,7 @@ const Home = () => {
       setLoading(false);
     };
     fetchBeers();
+    window.scrollTo(0, 0);
   }, [page]);
 
   return (
@@ -44,22 +45,14 @@ const Home = () => {
           <>
             <Grid container spacing={3}>
               {beers.map(beer => (
-                <Grid
-                  key={beer.id}
-                  item
-                  justify="center"
-                  xs={12}
-                  sm={6}
-                  md={4}
-                  lg={3}
-                >
-                  <Paper elevation={3} className={classes.fixedHeightPaper}>
+                <Grid key={beer.id} item xs={12} sm={6} md={4} lg={3}>
+                  <Paper elevation={3}>
                     <BeerGrid beer={beer} />
                   </Paper>
                 </Grid>
               ))}
             </Grid>
-            <Grid container className={classes.btnPages} justify="flex-end">
+            <Grid container className={classes.btnPages}>
               {page > 1 && (
                 <Grid item>
                   <Button

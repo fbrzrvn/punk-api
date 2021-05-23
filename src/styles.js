@@ -6,5 +6,6 @@ export default makeStyles(theme => ({
   },
   btnPages: {
     marginTop: theme.spacing(3),
+    justifyContent: 'flex-end',
   },
 }));
